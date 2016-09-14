@@ -5,16 +5,18 @@ typedef vector<int> vi;
 
 int findl(vi a, int n)
 {
-    int ans;
+    int ans=-1;
     for(int i=0;i<n;i++)
     {
-        for(int j=i;j<=n;j++)
+        for(int j=i+1;j<n-1;j++)
         {
-            if(a[i]^a[j])
+            if((a[i]^a[j])==0)
             {
-                ans=a[i];
+                ans=a[j];
                 break;
             }
+            //else
+
         }
     }
     return ans;
