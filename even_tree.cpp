@@ -41,8 +41,9 @@ void dfs(int u,int p){
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin>>n>>m;
-	int u,v;
+
 	while(m--){
+            int u,v;
 		cin>>u>>v;
 		--u,--v;
 		adj[u].psb(v);
