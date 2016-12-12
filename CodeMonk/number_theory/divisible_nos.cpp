@@ -1,45 +1,109 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#define ll long long
+
 using namespace std;
-
-#define rep(i,N) for(int (i)=0;(i)<(N);(i)++)
-#define repi(i,j,N) for(int (i)=(j);(i)<(N);(i)++)
-#define sz(a) int((a).size())
-#define pb push_back
-#define mp make_pair
-
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef pair<int,int> ii;
-
-#define mod 1000000007
-
-long int Exponentiation(long int x,long int n)
+ll a,b,c;
+map <ll, ll> mp1,mp2;
+const ll mod = 1e9+7;
+ll expo(ll a, ll b)
 {
-    if(n==0)
-        return 1;
-    else if(n%2 == 0)
-        return Exponentiation((x*x)%mod,n/2);
-    else
-        return (x*Exponentiation((x*x)%mod,(n-1)/2));
-
+	ll ans=1;
+	while(b)
+	{
+		if(b%2)
+		{
+			ans*=a;
+			ans%=mod;
+		}
+		a*=a;
+		a%=mod;
+		b/=2;
+	}
+	return ans;
 }
 
-int GCD(long int A, long int B) {
-    if(B==1)
-        return A;
-    else
-        return GCD(B, A % B);
-}
+void factor(ll a, int  p)
+{
 
+	if(p==0)
+	{
+		for(ll i=2;i*i<=a;i++)
+		{
+			if(a%i==0)
+			{
+				while(a%i==0)
+				{
+					mp1[i]++;
+					a/=i;
+				}
+			}
+		}
+		if(a>1)
+		{
+			mp1[a]++;
+		}
+	}
+	else
+	{
+		for(ll i=2;i*i<=a;i++)
+		{
+			if(a%i==0)
+			{
+				while(a%i==0)
+				{
+					mp2[i]++;
+					a/=i;
+				}
+				mp2[i]*=c;
+			}
+		}
+		if(a>1)
+		{
+			mp2[a]++;
+			mp2[a]*=c;
+		}
+	}
+
+}
 int main()
 {
-    int t;cin>>t;
-    while(t--){
-        long int a,b,c;cin>>a>>b>>c;
-        long int z=Exponentiation(b,c);
-        int g = GCD(a,z);
-        int k=(a * z) / g;
-        cout<<k%mod<<endl;
-    }
-    return 0;
+	int t;
+	cin>>t;
+	for(int q=1;q<=t;q++)
+	{
+		mp1.clear();
+		mp2.clear();
+		cin>>a>>b>>c;
+		factor(a,0);
+		factor(b,1);
+		for(map <ll,ll>::iterator it = mp2.begin(); it!=mp2.end();it++)
+		{
+			if(mp1[it->first])
+			{
+				if(mp1[it->first] <= it->second)
+					mp2[it->first] = it->second - mp1[it->first];
+				else
+					mp2[it->first] = 0;
+
+
+			}
+		}
+		ll sum=1;
+
+		for(map <ll,ll>::iterator it = mp2.begin(); it!=mp2.end();it++)
+		{
+			ll tp = it->second;
+			ll val = it->first%mod;
+			if(tp>0)
+			{
+				ll ans = expo(val,tp);
+				sum*=ans;
+				sum%=mod;
+			}
+		}
+		cout<<sum<<endl;
+
+
+	}
+	return 0;
 }
