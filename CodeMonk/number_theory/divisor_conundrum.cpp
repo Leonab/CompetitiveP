@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 #define ll long long
-//function to calculate GCD
+
 ll gcd(ll a, ll b){
 	if(b==0)
     return a;
@@ -15,7 +16,8 @@ ll a[200100], f[200100]={0};
 int main(){
 	ll n;cin>>n;
 
-	for(ll i=1; i<=n; i++){ cin>>a[i];
+	for(ll i=1; i<=n; i++){
+        cin>>a[i];
 		f[a[i]]++;
 	}
 
