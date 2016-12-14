@@ -13,24 +13,20 @@ typedef pair<int,int> ii;
 
 int main()
 {
-    int n;cin>>n;
+    int n,f[100]={0};cin>>n;
     int a[n],count=0;
     rep(i,n)
     {
         cin>>a[i];
+        f[a[i]]++;
     }
-    vi z;
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
-        if(abs(a[i]-a[i+1])<=1)
-        {
-            z.pb(a[i]);
-            z.pb(a[i+1]);
-            for(int j=i+1;j<n;j++)
-                if(abs(z[0]-a[j+1])<=1)
-                 z.pb(j+1);
-        }
+        int counter=f[i]+f[i-1];
+        if(counter>count)
+            count=counter;
     }
-    cout<<z.size();
+
+    cout<<count;
     return 0;
 }
