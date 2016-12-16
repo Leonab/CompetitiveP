@@ -31,20 +31,37 @@ int main()
     {
         rep(j,m)
         {
+              a = lower_bound(mat[i][j]) //lowerbound in next row
+              b = largest element smaller than mat[i][j]
+              ans = min(ans, a-mat[i][j]);
+              ans = min(ans, mat[i][j]-b);
+        }
+    }
+    rep(i,n)
+    {
+        //int flag=0;
+        rep(j,m)
+        {
             if(mat[i][j+1]-mat[i][j]<=diff)
                 {
-                    diff=mat[i][j+1]-mat[i][j];
                     b.pb(mat[i][j+1]);
                 }
         }
     }
+
     int z=b.size();
+    sort(b.begin(),b.end());
     diff = INT_MAX;
     rep(i,z)
     {
-        cout<<b[i];
-        if(b[i+1]-b[i]<diff)
-            diff=b[i+1]-b[i];
+        cout<<b[i]<<' ';
+    }
+    cout<<endl;
+    rep(i,z)
+    {
+        //cout<<b[i];
+        if(abs(b[i+1]-b[i])<diff)
+            diff=abs(b[i+1]-b[i]);
     }
     cout<<diff;
 
