@@ -34,6 +34,7 @@ struct node *newNode(node *tree, int data, char s)
     {
         tree->right=temp;
     }
+    delete temp;
 };
 
 
