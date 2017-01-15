@@ -35,7 +35,7 @@ int main()
     rep(i,n) {
         cin>>a[i];
     }
-    int steps,z=INT_MAX;
+    int steps,z;
     steps,z=getInvCount(a,n);
     //z=n-steps;
     //cout<<z;
