@@ -12,25 +12,24 @@ typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef pair<int,int> ii;
 
+vi circle[1001];
+
 int main()
 {
-    int t;cin>>t;
-    while(t--) {
-        ll n;cin>>n;
-        ll a[n];
-        for(ll i=0;i<n;i++) {
-            cin>>a[i];
-        }
-        ll sum=0,j=0;
-        for(ll i=n-1;i>=0;i--) {
-            if(a[i]>=j) {
-                j=a[i];
-                }
-                sum+=j-a[i];
+    int n;cin>>n;
+    int a[n][2];
+    ll score=0;
+    rep(i,n) {
+        int r,w;cin>>r>>w;
+        a[i][o]=r,a[i][1]=w;
+    }
+    for(int i=1;i<n;i++) {
+        for(int j=1;j<n;j++) {
+            for(int k=1;k<n;k++) {
+            if(j*j+k*k<=pow((a[i][o]-a[i-1][0]),2))
+
             }
-
-        cout<<sum<<endl;
-
+        }
     }
     return 0;
 }

@@ -14,23 +14,16 @@ typedef pair<int,int> ii;
 
 int main()
 {
-    int t;cin>>t;
-    while(t--) {
-        ll n;cin>>n;
-        ll a[n];
-        for(ll i=0;i<n;i++) {
-            cin>>a[i];
-        }
-        ll sum=0,j=0;
-        for(ll i=n-1;i>=0;i--) {
-            if(a[i]>=j) {
-                j=a[i];
-                }
-                sum+=j-a[i];
-            }
-
-        cout<<sum<<endl;
-
+    string s;cin>>s;
+    long int a[10005];
+    memset(a,-1,sizeof a);
+    int x = s.length();
+    int counter=0;
+    for(int i=0;i<x;i++) {
+        a[s[i]]++;
+        if(a[s[i]]>0)
+            counter++;
     }
+    cout<<counter;
     return 0;
 }
