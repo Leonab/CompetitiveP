@@ -18,14 +18,14 @@ int main()
 {
     string s;
     getline(cin,s);
-    int x=s.length();
+    ll x=s.length();
     ll sum=0;
     string temp="";
-    for(int i=0;i<=x;i++) {
+    for(ll i=0;i<=x;i++) {
         if(s[i]==' ' || i==s.size()) {
-            int f=1, temp_sum=0;
+            ll f=1, temp_sum=0;
             //cout<<temp.size()<<endl;
-            for(int j=temp.size()-1;j>=0;j--) {
+            for(ll j=temp.size()-1;j>=0;j--) {
                temp_sum = (temp_sum + (temp[j]-'0')*f*(j+1))%mod;
                f = (f*10+1)%mod;
             }
