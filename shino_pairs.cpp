@@ -14,13 +14,34 @@ typedef pair<int,int> ii;
 
 int main()
 {
-    int n;cin>>n;
-    int a[n];
+    ll n;cin>>n;
+    ll a[n];
     rep(i,n) cin>>a[i];
-    set<int> s;
-    for(int i=n-1;i>1;i--) {
-        s.insert(a[i]);
+    //multiset<pair<ll,ll> > s;
+    map<string,int> m;
+    vi z;
+    int cnt=0;
+    for(ll i=0;i<n;i++) {
+
+        for(ll j=i;j<n;j++) {
+
+            for(ll k=i;k<=j;k++) {
+
+                z.pb(a[k]);
+            }
+            if(z.size()>1) {
+                sort(z.begin(),z.end());
+                /*if(s.find(make_pair(z[z.size()-1],z[z.size()-2]))==s.end())
+                s.insert(make_pair(z[z.size()-1],z[z.size()-2]));*/
+                string str = to_string(z[z.size()-1]) + to_string(+ z[z.size()-2]);
+                m[str] = 1;
+            }
+        } z.clear();
     }
-    cout<<s.size();
+    for(auto it:m)
+        if(it.second == 1)
+        cnt++;
+        //cout<<it.first<<"  "<<it.second<<endl;
+    cout<<cnt;
     return 0;
 }

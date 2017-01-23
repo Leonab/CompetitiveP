@@ -13,30 +13,35 @@ typedef vector<vi> vvi;
 typedef pair<int,int> ii;
 
 int main()
-{
-    int m,p;cin>>m>>p;
-    int a[p];
-    rep(i,p) {
-        cin>>a[i];
-    }
-    ll dp[p];
-    dp[0] = a[0];
-    //memset(dp,0,sizeof dp);
-    for(int i=1;i<=p;i++) {
-        dp[i] = dp[i-1] + a[i];
-    }
-    int mi = INT_MIN;
-    rep(i,p) {
-        if(a[i]>mi)
-            mi = a[i];
-    }
-    if(p-m-1>=0)
-        cout<<dp[p-m-1];
-    else
-        cout<<mi;
-
-
-    ll load = 0;
-
-    return 0;
+{ int m,p;
+int data[251];
+ cin>>m>>p;
+ int start=0,end=0;
+ for(int i=1;i<=p;i++)
+ { cin>>data[i];
+  start=max(start,data[i]);
+ }
+ int ans=0;
+ end=26*1e5;
+ while(start<=end)
+ { int mid=(start+end)/2;
+  int i=1;
+  int cur=0;
+  int cnt=1;
+  while(i<=p)
+  { if(cur+data[i]<=mid)
+   { cur+=data[i];i++;
+   }
+   else
+   { cur=0;
+    cnt++;
+   }
+  }
+  if(cnt<=m)
+  { ans=mid;
+   end=mid-1;
+  }
+  else start=mid+1;
+ }
+ cout<<ans<<endl;
 }
