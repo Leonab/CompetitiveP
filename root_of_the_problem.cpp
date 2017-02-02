@@ -17,7 +17,6 @@ int main()
 {
     int t;cin>>t;
     while(t--) {
-
     int n;cin>>n;
     int a[n][2];
     ll x =0;
@@ -26,7 +25,6 @@ int main()
         x += a[i][0]-a[i][1];
     }
     cout<<x<<endl;
-
     }
     return 0;
 }
