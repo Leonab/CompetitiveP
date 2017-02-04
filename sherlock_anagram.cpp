@@ -23,7 +23,6 @@ int main()
         rep(i,n) {
             string str="";
             for(int j=0;j<n-i;j++) {
-
                 string str2="";
                 for(int k=i;k<=j;k++) {
                     str2.pb(s[k]);
@@ -38,7 +37,6 @@ int main()
                     if(sum1==sum2)
                         cnt++;
                 }
-
             }
         }
         cout<<cnt<<endl;
