@@ -19,7 +19,7 @@ int main()
         int n,W;cin>>n>>W;
         ll w[n],v[n];
         ll dp[n+1][W+1];
-        rep(i,n) cin>>w[i];
+        //rep(i,n) cin>>w[i];
         rep(i,n) cin>>v[i];
         memset(dp,0,sizeof dp);
 
