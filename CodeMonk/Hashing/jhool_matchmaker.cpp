@@ -38,9 +38,9 @@ int main()
                 counter+=m[i];
             ans.insert({counter,{k,a}});
         }
-        for(auto it:ans) {
+        /*for(auto it:ans) {
             cout<<it.first<<" {"<<it.second.first<<","<<it.second.second<<"} ";
-        }cout<<endl;
+        }cout<<endl;*/
         for(auto it:ans) {
             if(k==0)
                 continue;
