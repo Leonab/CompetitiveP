@@ -13,7 +13,6 @@ typedef vector<vi> vvi;
 typedef pair<int,int> ii;
 
 map<char, int> mp;
-
 int main()
 {
     int q;cin>>q;
