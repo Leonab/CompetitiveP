@@ -19,7 +19,6 @@ int main()
     ll a[n],dist = INT_MAX;
     for(ll i=0;i<n;i++) cin>>a[i];
     sort(a,a+n);
-
     for(ll i=1;i<n;i++) {
             if(abs(a[i]-a[i-1])<dist)
                 dist = abs(a[i]-a[i-1]);
