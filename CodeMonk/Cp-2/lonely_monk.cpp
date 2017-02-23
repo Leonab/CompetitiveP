@@ -20,6 +20,7 @@ int main()
     ll cnt[2] = {0};
     cnt[0] = 1;
     ll ans = 0;
+
     for(int i=1;i<=n;i++) {
         cin>>a[i];
         p[i] = p[i-1] + a[i];
@@ -27,6 +28,7 @@ int main()
         ans+=cnt[p[i]];
         cnt[p[i]]++;
     }
+
     cout<<ans;
     return 0;
 }

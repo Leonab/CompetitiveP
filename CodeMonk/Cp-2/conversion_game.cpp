@@ -18,6 +18,7 @@ int main()
     while(t--) {
         int n;cin>>n;
         ll x,sum=0,sum1=0;
+
         rep(i,n) {
             cin>>x;
             sum+=x;
@@ -26,6 +27,7 @@ int main()
             cin>>x;
             sum1+=x;
         }
+
         if(sum==sum1)
             cout<<"YES"<<endl;
         else
