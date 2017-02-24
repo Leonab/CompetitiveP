@@ -27,45 +27,25 @@ int main(){
            cin >> b[b_i];
         }
 
-        ll suma[100000],sumb[100000];
-        suma[0] = a[0], sumb[0] = b[0];
-        for(ll i=1;i<n;i++)
-            suma[i] = suma[i-1] + a[i];
-        for(ll j=1;j<m;j++)
-            sumb[j] = sumb[j-1] + b[j];
-        ll ans,mx=0;
+        ll i=0,j=0;
+        ll sum = 0,ans;
+        while(i<n && a[i]+sum<=x)
+            sum += a[i++];
 
-        for(ll i=0;i<n;i++) {
-            ll zum = x - suma[i];
-            ll ans2 = 0;
-            if(zum>0) {
-            ll beg = 0, en = m-1;
-            while(beg<en) {
-                ll mid = (beg+en)/2;
-                if(sumb[mid]<=zum) {
-                    //cout<<sumb[mid]<<' '<<endl;
-                    ans2 = mid;
-                    en = mid-1;
-                }
-                else
-                    beg = mid+1;
+        ans = i;
+
+        while(j<m && i>=0) {
+            sum += b[j++];
+            while(sum>x && i>0) {
+                sum -= a[--i];
             }
-            /*for(ll j=0;j<m;j++) {
-                if(sumb[j]<=zum) {
-                    ans2=j;
-                }
-                else
-                    break;
-            }*/
-            }
-            else
-                continue;
-            ans = i + ans2 + 2;
-            //cout<<ans2<<' '<<i<<endl;
-            if(ans>mx)
-                mx = ans;
+
+            if(sum<=x && ans<i+j)
+                ans = i+j;
         }
-        cout<<mx<<endl;
+
+        cout<<ans<<endl;
+
     }
     return 0;
 }
