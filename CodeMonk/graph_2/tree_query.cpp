@@ -22,16 +22,13 @@ int main()
         adj1[u].pb(v);
         adj2[v].pb(u);
     }
+
     int mx1=0,mx2=0;
-    for(ll i=1;i<=m;i++) {
-        int cnt1=0,cnt2=0;
-        for(auto x:adj1[i])
-            cnt1++;
-        for(auto y:adj2[i])
-            cnt2++;
-        if(cnt1==0)
+    for(ll i=1;i<=n;i++) {
+        if(adj1[i].size()<1)
             mx1++;
-        if(cnt2==0)
+        //cout<<adj1[i].size()<<' ';
+        if(adj2[i].size()<1)
             mx2++;
     }
     cout<< max(mx1,mx2);
