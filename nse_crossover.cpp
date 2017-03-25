@@ -19,19 +19,19 @@ int main()
     double ltma[1005]={0},stma[1005]={0};
     for(int i=1;i<=n;i++) {
         cin>>a[i];
-        if(i>=2) {
+        if(i>=60) {
             double sum1 = 0;
-            for(int j=i;j>i-2;j--){
+            for(int j=i;j>i-60;j--){
                 sum1+= a[j];
             }
-            stma[i] = (sum1/2);
+            stma[i] = (sum1/60);
         }
-        if(i>=5) {
+        if(i>=300) {
             double sum2 = 0;
-            for(int j=i;j>i-5;j--){
+            for(int j=i;j>i-300;j--){
                 sum2+= a[j];
             }
-            ltma[i] = sum2/5;
+            ltma[i] = sum2/300;
         }
     }
     for(int i=1;i<=n;i++) {
